@@ -30,16 +30,11 @@ class _GamePageState extends State<GamePage> {
   Widget build(BuildContext context) {
     _gamePageState = this;
     return Scaffold(
+      backgroundColor: Color(0xFF27153E),
       appBar: AppBar(
-        //leading: Container(width: 0,height: 0,),
+        backgroundColor: Color(0xFF9899FB),
         title: Text(vsBot ? 'Playing vs Bot' : 'Playing vs Friend'),
         actions: <Widget>[
-          // IconButton(
-          //   icon: Icon(Icons.settings_brightness),
-          //   tooltip: 'Change Theme',
-          //   onPressed: () {
-          //   },
-          // ),
           IconButton(
             icon: Icon(Icons.info),
             tooltip: 'About',
@@ -52,7 +47,6 @@ class _GamePageState extends State<GamePage> {
         ],
       ),
       body: Container(
-        decoration: BoxDecoration(color: Colors.blue[200]),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -61,6 +55,7 @@ class _GamePageState extends State<GamePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Color(0xFF9899FB),
         onPressed: () {
           setState(() {
             awaitfn('Reset?', 'Want to reset the current game?', 'Go Back',
@@ -376,45 +371,3 @@ int _bestMove(List<String> _board) {
   });
   return bestMove;
 }
-
-//---------------------------------------- API ----------------------------------
-
-// Future gameAPI() async {
-//   var url = 'http://perfecttictactoe.herokuapp.com/api/v2/play';
-//   Map data = {
-//     "player_piece": "o",
-//     "opponent_piece": "x",
-//     "board": [
-//       {"id": "top-left", "value": _board[0]},
-//       {"id": "top-center", "value": _board[1]},
-//       {"id": "top-right", "value": _board[2]},
-//       {"id": "middle-left", "value": _board[3]},
-//       {"id": "middle-center", "value": _board[4]},
-//       {"id": "middle-right", "value": _board[5]},
-//       {"id": "bottom-left", "value": _board[6]},
-//       {"id": "bottom-center", "value": _board[7]},
-//       {"id": "bottom-right", "value": _board[8]}
-//     ]
-//   };
-//   var res = await http.post(url, body: json.encode(data));
-//   if (res.statusCode == 200) {
-//     var resBody = json.decode(res.body);
-//     if (resBody['status'] == 'success') {
-//       var newBoard = resBody['data'];
-//       if (newBoard['status'] == 'win') {
-//         winner = newBoard['winner'];
-//         awaitfnn();
-//       } else if (newBoard['status'] == 'draw') {
-//         awaitfn('It"s a Draw', 'Want to try again?', 'Go Back', 'New Game');
-//       }
-//       int i = 0;
-//       newBoard['board'].forEach((box) => {_board[i++] = box['value']});
-//     }
-//     _gamePageState.setState(() {});
-//     loading = false;
-//     _turnState.setState(() {
-//       _turn = 'Turn: X';
-//       currentMoves++;
-//     });
-//   }
-// }

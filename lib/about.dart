@@ -6,7 +6,9 @@ class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Color(0xFF27153E),
         appBar: AppBar(
+          backgroundColor: Color(0xFF9899FB),
           title: Text("About Me"),
         ),
         body: aboutBody);
@@ -15,10 +17,6 @@ class About extends StatelessWidget {
 
 Widget get aboutBody {
   return Container(
-      decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topRight, end: Alignment.bottomLeft,
-              colors: [const Color(0xFFB3E5FC), const Color(0xFF2196F3)])),
       padding: EdgeInsets.all(20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -28,11 +26,11 @@ Widget get aboutBody {
             text: TextSpan(children: [
               TextSpan(
                 text: 'A Simple TicTacToe game made using ',
-                style: TextStyle(color: Colors.black, fontSize: 20),
+                style: TextStyle(color: Colors.white, fontSize: 20),
               ),
               TextSpan(
                   text: 'Flutter',
-                  style: TextStyle(color: Colors.blue[900], fontSize: 20),
+                  style: TextStyle(color: Colors.white, fontSize: 20),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
                       launch('https://flutter.dev');
@@ -46,48 +44,32 @@ Widget get aboutBody {
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
                 Text(
-                  'Developed by Krishna S',
-                  style: TextStyle(fontSize: 20),
+                  'Developed by Hemant ,Shalini, Samriddhi, Nikita',
+                  style: TextStyle(fontSize: 20,color: Colors.white),
                 ),
                 Row(
                   children: <Widget>[
-                    Icon(Icons.code),
+                    Icon(Icons.code,color: Colors.white,),
                     InkWell(
                       child: Text(
-                        '  Github: sbvkrishna',
-                        style: TextStyle(fontSize: 20, color: Colors.blue[900]),
+                        '  Github: Hemant-appd',
+                        style: TextStyle(fontSize: 20, color: Colors.white),
                       ),
                       onTap: () =>
-                          {launch('https://github.com/sbvkrishna')},
+                          {launch('https://github.com/Hemant-appd')},
                     )
                   ],
                 ),
                 Row(
                   children: <Widget>[
-                    Icon(Icons.email),
+                    Icon(Icons.email,color: Colors.white,),
                     Text(
-                      '  saladibalavijayakrishna@gmail.com',
-                      style: TextStyle(fontSize: 18),
+                      '  hemantgoyal748@gmail.com',
+                      style: TextStyle(fontSize: 18,color: Colors.white),
                     ),
                   ],
                 ),
-                Text(''),
-                RichText(
-                  text: TextSpan(children: [
-                    TextSpan(
-                      text: 'This Game\'s Source code is available at ',
-                      style: TextStyle(color: Colors.black, fontSize: 20),
-                    ),
-                    TextSpan(
-                        text: 'Github',
-                        style: TextStyle(color: Colors.blue[900], fontSize: 20),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            launch(
-                                'https://github.com/sbvkrishna/tictactoe-flutter');
-                          })
-                  ]),
-                ),
+
               ],
             ),
           )
